@@ -1,0 +1,8 @@
+.on { background-color: yellow; }
+
+.ng-invalid { color: red;}
+.ng-valid { color: green; }
+.ng-untouched { color: black; }
+.ng-touched { border-block-start-color: blue;}
+.ng-dirty { color: brown;}
+.ng-pristine {}
