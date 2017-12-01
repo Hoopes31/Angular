@@ -15,7 +15,7 @@ export class User {
         public state: string = "",
         public luck: boolean = false,
 		public created_at: Date = new Date(),
-		public updated_at: Date = new Date()
+		public updated_at: Date = new Date(),	
 	)
 	{
 	}

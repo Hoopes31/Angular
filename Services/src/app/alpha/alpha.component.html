@@ -1,0 +1,11 @@
+<h3>Alpha online...</h3>
+<button (click)="addOne()">Add One</button>
+<form (submit)="addNumber()">
+	<input type="number" name="new_number" placeholder="Enter a number" [(ngModel)]="new_number">
+	<input type="submit" value="Add a number">
+</form>
+<ul>
+	<li *ngFor="let number of data">
+		{{number}}
+	</li>
+</ul>

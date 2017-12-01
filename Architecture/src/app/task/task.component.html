@@ -1,3 +1,6 @@
 <p>
-  task works!
+  {{title}}
+  {{task | json}}
+  <app-task-list [data]="someData" ></app-task-list>
+  <app-task-new></app-task-new>
 </p>

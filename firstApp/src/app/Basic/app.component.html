@@ -117,7 +117,14 @@
                 <span *ngIf="city.invalid && city.dirty">
                     <div *ngIf="city.errors.required">Address is required</div>
                 </span>
-                <br>
+				<br>
+				
+				<select
+					class='form-control'
+					name='state'>
+					<option *ngFor="let item of states" value={{item}}>{{item | json}}</option>
+				</select>
+				<br>
 
 				<input class="btn btn-primary" type="submit" value="Submit" [disabled]="!formData.valid && password.value != password_confirm.value">
                 </div>  

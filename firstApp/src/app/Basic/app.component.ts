@@ -14,9 +14,10 @@ export class AppComponent {
 	user: User;
     users: Array<User> = [];
     message: string;
-    states: Array<any> = [
-        {"Alaska": 1},
-        {"Alabama":2}
+    states: Array<string> = [
+		"Alaska",
+		"Alabama",
+		"California"
     ]
 
 	ngOnInit() {
