@@ -5,9 +5,11 @@
 		<div style="text-align:center">
 			<h1>
 				{{ title }}
-			</h1>
+            </h1>
+            <div>{{ message }}</div>
 			<form (submit)='onSubmit()' name='formData' #formData='ngForm'>
 				<div class="form-group">
+
 				<input 
 					class="form-control"
 					type='text' 
@@ -17,11 +19,12 @@
 					minlength="2"
 					[(ngModel)]='user.first_name'
 					#first_name="ngModel">
-				<span *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)">
+				<span *ngIf="first_name.invalid && first_name.dirty">
 					<div *ngIf="first_name.errors.required">Name is required</div>
 					<div *ngIf="first_name.errors.minlength">Name must be longer than 2 characters</div>
 				</span>
-				<br>
+                <br>
+                
 				<input 
 					class="form-control"
 					type='text' 
@@ -31,11 +34,12 @@
 					minlength="2" 
 					[(ngModel)]='user.last_name'
 					#last_name="ngModel">
-				<span *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)">
+				<span *ngIf="last_name.invalid && last_name.dirty">
 					<div *ngIf="last_name.errors.required">Name is required</div>
 					<div *ngIf="last_name.errors.minlength">Name must be longer than 2 characters</div>
 				</span>
-				<br>
+                <br>
+                
 				<input 
 					class="form-control"
 					type='email' 
@@ -45,11 +49,12 @@
 					pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
 					[(ngModel)]='user.email'
 					#email="ngModel">
-				<span *ngIf="email.invalid && (email.dirty || email.touched)">
+				<span *ngIf="email.invalid && email.dirty">
 					<div *ngIf="email.errors.required">Email is required</div>
 					<div *ngIf="email.errors.pattern">Must be valid email format</div>
 				</span>
-				<br>
+                <br>
+                
 				<input 
 					class="form-control"
 					type='password' 
@@ -59,14 +64,64 @@
 					minlength="5" 
 					[(ngModel)]='user.password'
 					#password="ngModel">
-				<span *ngIf="password.invalid && (password.dirty || password.touched)">
+				<span *ngIf="password.invalid && password.dirty">
 					<div *ngIf="password.errors.required">Password is required</div>
 					<div *ngIf="password.errors.minlength">Password must be longer than 5 characters</div>
 				</span>
-				<br>
-				</div>
-				<input class="btn btn-primary" type="submit" value="Submit" [disabled]="!formData.$valid">
-			</form >
+                <br>
+
+                <input 
+                    class="form-control"
+                    type='password_confirm' 
+                    name='password_confirm'
+                    [(ngModel)]='user.password_confirm'
+                    placeholder="Password Confirm"
+                    required
+                    #password_confirm='ngModel'>
+                <span *ngIf="password_confirm.invalid && password_confirm.dirty">
+                    <div *ngIf="password_confirm.errors.required">Password is required</div>
+                    <div *ngIf="password_confirm.errors.minlength">Password must be longer than 5 characters</div>
+                </span>
+                <div *ngIf="password_confirm.dirty && password.value != password_confirm.value">Passwords must match!</div>
+                <br>
+
+                <input 
+                    class="form-control"
+                    type='text' 
+                    name='street'
+                    [(ngModel)]='user.street'
+                    required
+                    placeholder="Street Address"
+                    #street='ngModel'>
+                <span *ngIf="street.invalid && street.dirty">
+                    <div *ngIf="street.errors.required">Address is required</div>
+                </span>
+                <br>
+
+                <input 
+                    class="form-control"
+                    type='text' 
+                    name='unit'
+                    [(ngModel)]='user.unit'
+                    placeholder="Unit ex: Apt 102">
+                <br>
+
+                <input 
+                    class="form-control"
+                    type='text' 
+                    name='city'
+                    [(ngModel)]='user.city'
+                    required
+                    placeholder="City"
+                    #city='ngModel'>
+                <span *ngIf="city.invalid && city.dirty">
+                    <div *ngIf="city.errors.required">Address is required</div>
+                </span>
+                <br>
+
+				<input class="btn btn-primary" type="submit" value="Submit" [disabled]="!formData.valid && password.value != password_confirm.value">
+                </div>  
+            </form >
 		</div>
 	</div>
 </div>

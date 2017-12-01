@@ -12,7 +12,12 @@ import { HttpModule } from '@angular/http';
 export class AppComponent {
 	title: string;
 	user: User;
-	users = [];
+    users: Array<User> = [];
+    message: string;
+    states: Array<any> = [
+        {"Alaska": 1},
+        {"Alabama":2}
+    ]
 
 	ngOnInit() {
 		this.title = 'Registration Form';
