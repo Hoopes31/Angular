@@ -122,13 +122,14 @@
 				<select
 					class='form-control'
 					name='state'>
-					<option *ngFor="let item of states" value={{item}}>{{item | json}}</option>
+					<option *ngFor="let item of states" value={{item}}>{{item}}</option>
 				</select>
 				<br>
 
-				<input class="btn btn-primary" type="submit" value="Submit" [disabled]="!formData.valid && password.value != password_confirm.value">
+				<input class="btn btn-primary" type="submit" value="Submit" [disabled]="!formData.valid || password.value != password_confirm.value">
                 </div>  
-            </form >
+			</form >
+			{{formData | json }}
 		</div>
 	</div>
 </div>
