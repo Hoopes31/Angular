@@ -1,0 +1,8 @@
+{{title}}
+<form (submit)="onSubmit()">
+	<input type="text" name="testData" [(ngModel)]="testData">
+	<input type="submit">
+</form>
+<ul>
+	<li *ngFor="let data of observable_now_local">{{ data }}</li>
+</ul>
